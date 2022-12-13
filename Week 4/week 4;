@@ -1,0 +1,201 @@
+
+ */
+package week4;
+
+import java.util.Random;
+
+/**
+ *
+ * @author yaser
+ */
+public class Dice {
+    private int numberOfSides;
+    private Random random;
+    
+    public Dice(int numberOfSides) {
+       this.numberOfSides = numberOfSides;
+       random = new Random();
+    }
+
+    public Dice() {
+        System.out.println("Hello"); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public int roll(){
+        return random.nextInt(this.numberOfSides)+1;
+    }
+    
+    public String toString(){
+        return "Number of sides = " + this.numberOfSides;
+    } 
+}
+
+
+/*
+
+/**
+ *
+ * @author yaser
+ */
+public class LyyraCard {
+    private double balance;
+    private String name; 
+    
+    public LyyraCard (double b){
+        this.balance = b;
+    }
+    
+    public LyyraCard (double b, String n){
+        this.balance = b;
+        this.name = n;
+    }
+    
+    public String toString(){
+        return  this.name + ": The card has " + this.balance + " euros";
+    }
+    
+    public void payEconomical(){
+        if(this.balance >= 2.5){
+            this.balance = this.balance - 2.5;
+        }
+    }
+    public void payGourmet(){
+        if(this.balance >= 4){
+             this.balance = this.balance - 4;
+        }
+    }
+    
+    public void loadMoney(double amount){
+        if(amount > 0){
+            this.balance = this.balance + amount;
+            if(this.balance > 150){
+                this.balance = 150;
+            }
+        }
+    }
+    
+}
+
+/*
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author yaser
+ */
+public class Week4 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        /*LyyraCard card = new LyyraCard(10);
+        System.out.println(card);*/
+        
+        /*
+        LyyraCard card = new LyyraCard(50);
+        System.out.println(card);
+        card.payEconomical();
+        System.out.println(card);
+
+        card.payGourmet();
+        card.payEconomical();
+        
+        System.out.println(card);*/
+
+        
+      /*  card.payGourmet();
+        System.out.println(card);
+      
+        card.payGourmet();
+        System.out.println(card);*/
+        
+        /*card.loadMoney(15);
+        System.out.println(card);
+        
+        card.loadMoney(10);
+        System.out.println(card);
+        
+        card.loadMoney(200);
+        System.out.println(card);*/
+        
+        /*System.out.println("Pekka: "+ card);
+        card.loadMoney(-15);
+        System.out.println("Pekka: "+ card);*/
+
+        LyyraCard pekka = new LyyraCard(20, "Pekka");
+        LyyraCard brian = new LyyraCard(30, "Brian");
+     
+         pekka.payGourmet();
+         brian.payEconomical();
+         System.out.println(pekka);
+         System.out.println(brian);
+         
+         pekka.loadMoney(20);
+         brian.payGourmet();
+         
+         System.out.println(pekka);
+         System.out.println(brian);
+         
+         pekka.payEconomical();
+         pekka.payEconomical();
+         
+         brian.loadMoney(50);
+         System.out.println(pekka);
+         System.out.println(brian);
+        
+        /*Dice d = new Dice(6);
+        System.out.println(d.roll());
+        System.out.println(d);*/
+          
+        /*ArrayList<Integer> list1 = new ArrayList<Integer>();
+        ArrayList<Integer> list2 = new ArrayList<Integer>();
+        list1.add(4);
+        list1.add(3);
+        list2.add(5);
+        list2.add(10);
+        list2.add(7);
+        combine(list1, list2);
+        System.out.println(list1); // prints [4, 3, 5, 10, 7]
+        System.out.println(list2); // prints [5, 10, 7]*/
+        
+      /*  Scanner reader = new Scanner(System.in);
+        
+        System.out.println("Enter first number");
+        int first = reader.nextInt(); 
+        
+        System.out.println("Enter second number");
+        int second = reader.nextInt(); 
+        
+        while(second<first){
+            System.out.println("Enter first number");
+            first = reader.nextInt(); 
+        
+            System.out.println("Enter second number");
+            second = reader.nextInt(); 
+        }
+        int sum = 0; 
+        
+        for(int i = first; i<second; i++){
+            if(i%2!=0){
+                System.out.println(i);
+                sum = sum + i; 
+            }
+        }
+        
+        System.out.println("Sum: " + sum);*/
+      } 
+
+    public static void combine(ArrayList<Integer> list1, ArrayList<Integer> list2) {
+       list1.addAll(list2);
+    }
+
+   
+    
+    
+}
+
+

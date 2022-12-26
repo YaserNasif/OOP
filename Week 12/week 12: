@@ -1,0 +1,321 @@
+public static void main(String[] args) {
+        Person pekka = new Person("Pekka Mikkola", "Korsontie Street 1 03100 Vantaa");
+        Person esko = new Person("Esko Ukkonen", "Mannerheimintie Street 15 00100 Helsinki");
+        System.out.println(pekka);
+        System.out.println(esko);
+    }
+public static void main(String[] args) {
+        Student olli = new Student("Olli", "Ida Albergintie Street 1 00400 Helsinki");
+        System.out.println(olli);
+        System.out.println("credits " + olli.credits());
+        olli.study();
+        System.out.println("credits "+ olli.credits());
+    	}
+
+ public static void main(String[] args) {
+        Student olli = new Student("Olli", "Ida Albergintie Street 1 00400 Helsinki");
+        System.out.println( olli );
+        olli.study();
+        System.out.println( olli );
+    	   }
+
+public static void main(String[] args) {
+        Teacher pekka = new Teacher("Pekka Mikkola", "Korsontie Street 1 03100 Vantaa", 1200);
+        Teacher esko = new Teacher("Esko Ukkonen", "Mannerheimintie 15 Street 00100 Helsinki", 5400);
+        System.out.println( pekka );
+        System.out.println( esko );
+ 
+        Student olli = new Student("Olli", "Ida Albergintie 1 Street 00400 Helsinki");
+        for ( int i=0; i < 25; i++ ) {
+            olli.study();
+        }
+        System.out.println( olli );
+    }
+
+ public static void printDepartment(List<Person> people) {
+       // we print all the people in the department
+    }
+ 
+    public static void main(String[] args) {
+        List<Person> people = new ArrayList<Person>();
+        people.add( new Teacher("Pekka Mikkola", "Korsontie Street 1 03100 Vantaa", 1200) );
+        people.add( new Student("Olli", "Ida Albergintie Street 1 00400 Helsinki") );
+ 
+        printDepartment(people);
+    }
+ 
+
+package farmsimulator;
+
+public class BulkTank {
+  private double capacity;
+  private double volume;
+  
+  public BulkTank() {
+    this.capacity = 2000;
+  }
+  
+  public BulkTank(double capacity) {
+    this.capacity = capacity;
+  }
+  
+  public double getCapacity() {
+    return this.capacity;
+  }
+  
+  public double getVolume() {
+    return this.volume;
+  }
+  
+  public double howMuchFreeSpace() {
+    return this.capacity - this.volume;
+  }
+  
+  public void addToTank(double amount) {
+    if (amount > this.howMuchFreeSpace()) {
+      this.volume = this.capacity;
+    } else {
+      this.volume += amount;
+    }
+  }
+  
+  public double getFromTank(double amount) {
+    if (amount > this.volume) {
+      double amountTaken = this.volume;
+      this.volume = 0;
+      return amountTaken;
+    }
+    
+    this.volume -= amount;
+    return amount;
+  }
+  
+  @Override
+  public String toString() {
+    return Math.ceil(this.volume) + "/" + Math.ceil(this.capacity);
+  }
+}
+BulkTank tank = new BulkTank();
+tank.getFromTank(100);
+tank.addToTank(25);
+tank.getFromTank(5);
+System.out.println(tank);
+
+tank = new BulkTank(50);
+tank.addToTank(100);
+System.out.println(tank);
+output:
+0.0/2000.0
+50.0/50.0
+
+  public BulkTank()
+public BulkTank(double capacity)
+public double getCapacity()
+public double getVolume()
+public double howMuchFreeSpace()
+public void addToTank(double amount)
+public double getFromTank(double amount) 
+  BulkTank tank = new BulkTank();
+tank.getFromTank(100);
+tank.addToTank(25);
+tank.getFromTank(5);
+System.out.println(tank);
+ 
+tank = new BulkTank(50);
+tank.addToTank(100);
+System.out.println(tank);
+
+public Cow() 
+public Cow(String name) 
+String getName() 
+double getCapacity() 
+double getAmount() 
+String toString() 
+public interface Milkable {
+    public double milk();
+}
+ 
+public interface Alive {
+    public void liveHour();
+}
+
+ private static final String[] NAMES = new String[]{
+        "Anu", "Arpa", "Essi", "Heluna", "Hely",  "Hento", "Hilke", "Hilsu", "Hymy", "Ihq", "Ilme", "Ilo",  "Jaana", "Jami", "Jatta", "Laku", "Liekki",  "Mainikki", "Mella", "Mimmi", "Naatti", "Nina", "Nyytti", "Papu", "Pullukka", "Pulu", "Rima", "Soma", "Sylkki", "Valpu", "Virpi"};
+int randomIndex = new Random().nextInt(NAMES.length);
+Cow cow = new Cow();
+System.out.println(cow);
+ 
+Alive livingCow = cow;
+livingCow.liveHour();
+livingCow.liveHour();
+livingCow.liveHour();
+livingCow.liveHour();
+ 
+System.out.println(cow);
+ 
+Milkable milkingCow = cow;
+milkingCow.milk();
+ 
+System.out.println(cow);
+System.out.println("");
+ 
+cow = new Cow("Ammu");
+System.out.println(cow);
+cow.liveHour();
+cow.liveHour();
+System.out.println(cow);
+cow.milk();
+System.out.println(cow);
+
+public MilkingRobot()
+BulkTank getBulkTank()
+void setBulkTank(BulkTank tank) 
+void milk(Milkable milkable)
+  MilkingRobot milkingRobot = new MilkingRobot();
+Cow cow = new Cow();
+System.out.println("");
+ 
+BulkTank tank = new BulkTank();
+milkingRobot.setBulkTank(tank);
+System.out.println("Bulk tank: " + tank);
+ 
+for(int i = 0; i < 2; i++) {
+    System.out.println(cow);
+    System.out.println("Living..");
+    for(int j = 0; j < 5; j++) {
+        cow.liveHour();
+    }
+    System.out.println(cow);
+ 
+    System.out.println("Milking...");
+    milkingRobot.milk(cow);
+    System.out.println("Bulk tank: " + tank);
+    System.out.println("");
+
+  public Barn(BulkTank tank)
+public BulkTank getBulkTank() 
+public void installMilkingRobot(MilkingRobot milkingRobot) 
+public void takeCareOf(Cow cow)installed
+public void takeCareOf(Collection<Cow> cows) 
+public String toString() 
+    
+ Barn barn - new Barn(new Bulkrank()); 
+  system.out.printin("barn; " + barn);
+MilkingRobot robot - new MilkingRobot(); 
+barn,installmilkingRobot(robot);
+Cow ammu = new COw();
+ammu.liveHour(); ammu.liveHour ( );
+barn.takecare0f (amnu);
+  system.out.printin("Barn: " + barn);
+•LinkedListecomp cowList = new LinkedList<con>();
+couList, add (ammu);
+cowList.add(new cow());
+for(cow cow: cowlist)
+cou. liveHour ( ); con.liveHour();
+barn.takecareof(cowList);
+  system.out -printin("Barn: " + barn);
+    
+import java.util.List;
+
+public class Farm implements Alive {
+    private String owner;
+    private Barn barn;
+    private List<Cow> cows;
+
+    public Farm(String owner, Barn barn, List<Cow> cows) {
+        this.owner = owner;
+        this.barn = barn;
+        this.cows = cows;
+    }
+
+    public void liveHour() {
+        for (Cow cow : cows) {
+            cow.liveHour();
+        }
+    }
+
+    public void manageCows() {
+        barn.takeCareOf(cows);
+    }
+}
+  package boxes;
+
+public class Thing {
+    private String name;
+    private int weight;
+
+    public Thing(String name, int weight) {
+        if (weight < 0) {
+            throw new IllegalArgumentException("Weight cannot be negative");
+        }
+        this.name = name;
+        this.weight = weight;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Thing thing = (Thing) o;
+        return name.equals(thing.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
+}
+
+abstract class Box {
+    protected List<Thing> things;
+
+    public Box() {
+        this.things = new ArrayList<Thing>();
+    }
+
+    public void add(Thing thing) {
+        things.add(thing);
+    }
+
+    public boolean isInBox(Thing thing) {
+        return things.contains(thing);
+    }
+
+    public abstract boolean canAdd(Thing thing);
+}
+
+public class MaxWeightBox extends Box {
+    private int maxWeight;
+
+    public MaxWeightBox(int maxWeight) {
+        this.maxWeight = maxWeight;
+    }
+
+    public boolean canAdd(Thing thing) {
+        int currentWeight = 0;
+        for (Thing t : things) {
+            currentWeight += t.getWeight();
+        }
+        return currentWeight + thing.getWeight() <= maxWeight;
+    }
+}
+package boxes;
+
+public class OneThingBox extends Box {
+    public OneThingBox() {
+        super();
+    }
+
+    public boolean canAdd(Thing thing) {
+        return things.isEmpty();
+    }
+}
+
